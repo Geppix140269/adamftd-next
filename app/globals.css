@@ -1,6 +1,44 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* Font families */
+  --font-heading: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-fira-code), ui-monospace, monospace;
+
+  /* Base colors */
+  --color-bg: #05090e;
+  --color-s1: #0c1520;
+  --color-s2: #111e2e;
+  --color-s3: #172538;
+  --color-b1: #1e3048;
+  --color-b2: #2a4060;
+
+  /* Accent colors */
+  --color-gold: #e8a424;
+  --color-gold-light: #ffc043;
+  --color-gold-dark: rgba(232, 164, 36, 0.12);
+  --color-green: #00cc90;
+  --color-green-dark: rgba(0, 204, 144, 0.1);
+  --color-red: #f05060;
+  --color-red-dark: rgba(240, 80, 96, 0.1);
+  --color-blue: #4090ff;
+  --color-blue-dark: rgba(64, 144, 255, 0.1);
+  --color-amber: #f0c030;
+  --color-amber-dark: rgba(240, 192, 48, 0.1);
+  --color-purple: #a060ff;
+  --color-purple-dark: rgba(160, 96, 255, 0.1);
+
+  /* Text colors */
+  --color-text-primary: #e8f2ff;
+  --color-text-secondary: #9ab8d8;
+  --color-text-muted: #506880;
+  --color-text-dim: #2e4258;
+
+  /* Border colors */
+  --color-border: #1e3048;
+  --color-border-light: #2a4060;
+}
 
 * {
   margin: 0;
