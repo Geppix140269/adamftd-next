@@ -3,13 +3,18 @@ import { HTMLAttributes, forwardRef } from "react";
 
 export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
   variant?: "ok" | "warn" | "risk" | "grey" | "blue";
+  size?: "sm" | "md";
   children?: React.ReactNode;
 }
 
 const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
-  ({ className, variant = "grey", children, ...props }, ref) => {
-    const baseStyles =
-      "inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded border";
+  ({ className, variant = "grey", size = "md", children, ...props }, ref) => {
+    const baseStyles = "inline-flex items-center gap-1 font-semibold rounded border";
+
+    const sizes = {
+      sm: "px-2 py-0.5 text-[10px]",
+      md: "px-2.5 py-1 text-xs",
+    };
 
     const variants = {
       ok: "bg-green-dark text-green border-green/20",
@@ -30,7 +35,7 @@ const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
     return (
       <span
         ref={ref}
-        className={cn(baseStyles, variants[variant], className)}
+        className={cn(baseStyles, sizes[size], variants[variant], className)}
         {...props}
       >
         {icons[variant] && <span>{icons[variant]}</span>}
