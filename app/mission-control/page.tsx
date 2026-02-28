@@ -30,7 +30,7 @@ const missionCards = [
     iconBg: "bg-green-dark",
     iconColor: "text-green",
     buttonBg: "bg-green-dark",
-    buttonText: "text-green",
+    buttonColor: "text-green",
     borderHover: "hover:border-green/30",
   },
   {
@@ -46,7 +46,7 @@ const missionCards = [
     iconBg: "bg-blue-dark",
     iconColor: "text-blue",
     buttonBg: "bg-blue-dark",
-    buttonText: "text-blue",
+    buttonColor: "text-blue",
     borderHover: "hover:border-blue/30",
   },
   {
@@ -62,7 +62,7 @@ const missionCards = [
     iconBg: "bg-gold-dark",
     iconColor: "text-gold-light",
     buttonBg: "bg-gold-dark",
-    buttonText: "text-gold-light",
+    buttonColor: "text-gold-light",
     borderHover: "hover:border-gold/35",
   },
   {
@@ -78,7 +78,7 @@ const missionCards = [
     iconBg: "bg-blue-dark",
     iconColor: "text-blue",
     buttonBg: "bg-blue-dark",
-    buttonText: "text-blue",
+    buttonColor: "text-blue",
     borderHover: "hover:border-blue/30",
   },
   {
@@ -94,7 +94,7 @@ const missionCards = [
     iconBg: "bg-red-dark",
     iconColor: "text-red",
     buttonBg: "bg-red-dark",
-    buttonText: "text-red",
+    buttonColor: "text-red",
     borderHover: "hover:border-red/25",
   },
   {
@@ -110,7 +110,7 @@ const missionCards = [
     iconBg: "bg-purple-dark",
     iconColor: "text-purple",
     buttonBg: "bg-purple-dark",
-    buttonText: "text-purple",
+    buttonColor: "text-purple",
     borderHover: "hover:border-purple/30",
     isNew: true,
   },
@@ -127,7 +127,7 @@ const missionCards = [
     iconBg: "bg-amber-dark",
     iconColor: "text-amber",
     buttonBg: "bg-amber-dark",
-    buttonText: "text-amber",
+    buttonColor: "text-amber",
     borderHover: "hover:border-amber/35",
     isNew: true,
   },
@@ -260,7 +260,7 @@ export default function MissionControlPage() {
 
                 {/* Button */}
                 <button
-                  className={`relative mt-1.5 self-start inline-flex items-center gap-2 text-sm font-semibold px-4 py-2.25 rounded-md transition-all ${card.buttonBg} ${card.buttonText} hover:brightness-115`}
+                  className={`relative mt-1.5 self-start inline-flex items-center gap-2 text-sm font-semibold px-4 py-2.25 rounded-md transition-all ${card.buttonBg} ${card.buttonColor} hover:brightness-115`}
                 >
                   {card.buttonText}
                 </button>
