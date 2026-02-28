@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils/cn";
 import { HTMLAttributes, forwardRef } from "react";
-import { TrendingUp, TrendingDown, Minus } from "lucide-react";
+import { TrendingUp, TrendingDown, Minus, LucideIcon } from "lucide-react";
 
 export interface MetricProps extends HTMLAttributes<HTMLDivElement> {
   label: string;
@@ -8,7 +8,11 @@ export interface MetricProps extends HTMLAttributes<HTMLDivElement> {
   change?: number;
   trend?: "up" | "down" | "neutral";
   changeLabel?: string;
+  trendValue?: string;
+  subtext?: string;
   variant?: "default" | "gold" | "green" | "red" | "blue";
+  icon?: LucideIcon;
+  iconColor?: string;
 }
 
 const Metric = forwardRef<HTMLDivElement, MetricProps>(
@@ -20,7 +24,11 @@ const Metric = forwardRef<HTMLDivElement, MetricProps>(
       change,
       trend = "neutral",
       changeLabel,
+      trendValue,
+      subtext,
       variant = "default",
+      icon: Icon,
+      iconColor,
       ...props
     },
     ref
@@ -47,23 +55,30 @@ const Metric = forwardRef<HTMLDivElement, MetricProps>(
 
     return (
       <div ref={ref} className={cn("", className)} {...props}>
-        <div className="text-xs font-medium text-text-muted mb-2">{label}</div>
+        <div className="flex items-center justify-between mb-2">
+          <div className="text-xs font-medium text-text-muted">{label}</div>
+          {Icon && (
+            <Icon className={cn("w-4 h-4", iconColor || "text-text-muted")} />
+          )}
+        </div>
         <div
           className={cn(
-            "font-heading text-3xl font-extrabold tracking-tight mb-1",
+            "font-heading text-3xl font-extrabold tracking-tight",
             valueColors[variant]
           )}
         >
           {value}
         </div>
-        {(change !== undefined || changeLabel) && (
-          <div className={cn("flex items-center gap-1.5 text-sm", trendColors[trend])}>
-            {change !== undefined && (
+        {subtext && (
+          <div className="text-xs text-text-muted mt-1">{subtext}</div>
+        )}
+        {(change !== undefined || changeLabel || trendValue) && (
+          <div className={cn("flex items-center gap-1.5 text-sm mt-1", trendColors[trend])}>
+            {(change !== undefined || trendValue) && (
               <>
                 <TrendIcon className="w-4 h-4" />
                 <span>
-                  {trend === "up" ? "+" : trend === "down" ? "" : ""}
-                  {change}%
+                  {trendValue || `${trend === "up" ? "+" : trend === "down" ? "" : ""}${change}%`}
                 </span>
               </>
             )}
