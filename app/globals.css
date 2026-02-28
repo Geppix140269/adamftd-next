@@ -180,27 +180,40 @@ h1, h2, h3, h4, h5, h6 {
   animation: slideInRight 0.3s ease;
 }
 
-/* Card utilities */
+/* Card utilities - using pure CSS instead of @apply */
 .card {
-  @apply bg-s1 border border-border rounded-lg overflow-hidden;
+  background-color: var(--color-s1);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
 
 .card-hover {
-  @apply card transition-all duration-200;
+  background-color: var(--color-s1);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.2s;
 }
 
 .card-hover:hover {
-  @apply bg-s2 shadow-[0_4px_16px_rgba(232,164,36,0.15)];
+  background-color: var(--color-s2);
+  box-shadow: 0 4px 16px rgba(232, 164, 36, 0.15);
 }
 
 /* Glass effect */
 .glass {
-  @apply bg-s1/80 backdrop-blur-md;
+  background-color: rgba(12, 21, 32, 0.8);
+  backdrop-filter: blur(12px);
 }
 
 /* Gradient text */
 .text-gradient-gold {
-  @apply bg-gradient-to-r from-gold-light to-gold bg-clip-text text-transparent;
+  background: linear-gradient(to right, var(--color-gold-light), var(--color-gold));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 /* Line clamp utilities */
