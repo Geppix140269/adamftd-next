@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ADAMftd - Trade Intelligence Platform
+
+A Next.js 14 application providing commercial decision intelligence for global trade, market analysis, and buyer discovery.
+
+## Features
+
+- 🎯 **Mission Control** - Central dashboard with market updates and quick actions
+- 🔍 **Find Buyers/Suppliers** - Search verified importers and exporters with real shipment data
+- 💰 **Price Benchmarking** - Compare pricing against real transaction data
+- ✅ **Company Validation** - Verify counterparty legitimacy and trade history
+- 📊 **Market Analysis** - Evaluate market opportunities and competition
+- 🚢 **Tariffs & Compliance** - Calculate duty rates and entry requirements
+- 📄 **Market Reports** - AI-generated market intelligence reports
+- 🛡️ **Risk Dashboard** - Trade finance and risk assessment tools
+- 📁 **Deal Room** - Manage trade deals and documentation
+- 👤 **User Profile** - Account management and preferences
+
+## Tech Stack
+
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Fonts:** Plus Jakarta Sans, Outfit, Fira Code (via next/font)
+- **Icons:** Lucide React
+- **Deployment:** Netlify
+
+## Design System
+
+- **Theme:** Dark navy (#05090e) with gold accents (#e8a424)
+- **Typography:** Heading font (Plus Jakarta Sans), Body font (Outfit), Monospace (Fira Code)
+- **Components:** 12+ reusable UI components (Button, Card, Modal, Toast, etc.)
+- **Responsive:** Mobile-first design with bottom navigation on mobile devices
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20+
+- npm or yarn
+
+### Installation
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+adamftd-nextjs/
+├── app/                    # Next.js App Router pages
+│   ├── mission-control/    # Dashboard
+│   ├── pricing/            # Pricing plans
+│   ├── find-buyers/        # Buyer search
+│   └── ...                 # Other pages
+├── components/
+│   ├── layout/             # Header, Navigation, Mobile Nav
+│   └── ui/                 # Reusable UI components
+├── lib/
+│   ├── hooks/              # Custom React hooks
+│   ├── utils/              # Utility functions
+│   └── constants/          # App constants
+└── types/                  # TypeScript type definitions
+```
 
-## Learn More
+## Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+No environment variables required for basic functionality.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Netlify
 
-## Deploy on Vercel
+This project is configured for Netlify deployment with the Next.js plugin.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Push to GitHub
+2. Connect repository to Netlify
+3. Deploy automatically on push
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Build settings:
+- Build command: `npm run build`
+- Publish directory: `.next`
+
+## License
+
+Proprietary - All rights reserved
+
+## Credits
+
+Built with Next.js 14, TypeScript, and Tailwind CSS.

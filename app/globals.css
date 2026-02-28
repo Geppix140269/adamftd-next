@@ -1,26 +1,225 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Base Colors (matching HTML prototype CSS variables) */
+  --color-bg: #05090e;
+  --color-s1: #0c1520;
+  --color-s2: #111e2e;
+  --color-s3: #172538;
+  --color-b1: #1e3048;
+  --color-b2: #2a4060;
+
+  /* Accent Colors */
+  --color-gold: #e8a424;
+  --color-gold-light: #ffc043;
+  --color-gold-dark: rgba(232, 164, 36, 0.12);
+
+  --color-green: #00cc90;
+  --color-green-dark: rgba(0, 204, 144, 0.1);
+
+  --color-red: #f05060;
+  --color-red-dark: rgba(240, 80, 96, 0.1);
+
+  --color-blue: #4090ff;
+  --color-blue-dark: rgba(64, 144, 255, 0.1);
+
+  --color-amber: #f0c030;
+  --color-amber-dark: rgba(240, 192, 48, 0.1);
+
+  --color-purple: #a060ff;
+  --color-purple-dark: rgba(160, 96, 255, 0.1);
+
+  /* Text Colors */
+  --color-text-primary: #e8f2ff;
+  --color-text-secondary: #9ab8d8;
+  --color-text-muted: #506880;
+  --color-text-dim: #2e4258;
+
+  /* Border Colors */
+  --color-border: #1e3048;
+  --color-border-light: #2a4060;
+
+  /* Fonts */
+  --font-heading: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-fira-code), ui-monospace, monospace;
+
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  /* Spacing */
+  --spacing-card: 1.5rem;
+  --spacing-section: 2rem;
+
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius: 0.5rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-card: 0.75rem;
+  --radius-button: 0.5rem;
+
+  /* Shadows */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-card-hover: 0 4px 16px rgba(232, 164, 36, 0.15);
+  --shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 8px 24px rgba(232, 164, 36, 0.28);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-b2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Animation keyframes */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.75);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Utility Classes */
+.fade-up {
+  animation: fadeUp 0.3s ease;
+}
+
+.fade-in {
+  animation: fadeIn 0.2s ease;
+}
+
+.pulse {
+  animation: pulse 1.8s infinite;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.3s ease;
+}
+
+/* Card utilities */
+.card {
+  @apply bg-s1 border border-border rounded-lg overflow-hidden;
+}
+
+.card-hover {
+  @apply card transition-all duration-200;
+}
+
+.card-hover:hover {
+  @apply bg-s2 shadow-[0_4px_16px_rgba(232,164,36,0.15)];
+}
+
+/* Glass effect */
+.glass {
+  @apply bg-s1/80 backdrop-blur-md;
+}
+
+/* Gradient text */
+.text-gradient-gold {
+  @apply bg-gradient-to-r from-gold-light to-gold bg-clip-text text-transparent;
+}
+
+/* Line clamp utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
